@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ihor Korolenko Python Dev</title>
+</head>
+<body>
+    <form action="" method="POST">
+    {% csrf_token %}
+    <label for="terms">Choose a term:</label>
+
+    <select name="terms" id="terms">
+    {% for term in terms %}
+    <option value="{{ term.slug }}"{% if term.slug == selected_term %} selected="selected" {% endif %}>{{ term.name }}</option>
+    {% endfor %}
+    </select>
+    <label for="brand_terms">Choose a brand term:</label>
+
+    <select name="brand_terms" id="brand_terms">
+    {% for term in brand_terms %}
+    <option value="{{ term.slug }}"{% if term.slug == selected_brand %} selected="selected" {% endif %}>{{ term.name }}</option>
+    {% endfor %}
+    </select>
+    <label for="styles">Choose a style:</label>
+
+    <select name="styles" id="styles">
+    {% for style in styles %}
+    <option value="{{ style.slug }}"{% if style.slug == selected_style %} selected="selected" {% endif %}>{{ style.name }}</option>
+    {% endfor %}
+
+    </select>
+    <button type="submit">Click Me!</button>
+    </form>
+    <div>
+    <a href="">Code on github</a>
+    </div>
+</body>
+</html>
